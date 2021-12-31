@@ -1,4 +1,4 @@
-package hashtables;
+package data_structures.hashtables;
 
 public class BasicHashTable {
 
