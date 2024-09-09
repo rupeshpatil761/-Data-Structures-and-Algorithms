@@ -24,6 +24,14 @@ public class LongestCommonPrefix {
 		
 	}
 	
+	/**
+	 * Steps:
+	 * 1) Sort given array
+	 * 2) find out min length word from array
+	 * 3) loop until i < minLengthWord lenght && compare first ith letter of first and last string from array
+	 * 4) longest prefix will be array[0].substring(0,i)
+	 */
+	
 	private static String  findLongestCommonPrefix(String[] input) {
 		int size = input.length;
 

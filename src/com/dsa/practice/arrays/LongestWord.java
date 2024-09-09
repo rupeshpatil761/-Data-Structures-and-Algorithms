@@ -1,5 +1,6 @@
 package com.dsa.practice.arrays;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -46,7 +47,9 @@ public class LongestWord {
 		
 		Optional<String> longestWord = map.entrySet().stream().sorted(Map.Entry.comparingByValue((v1, v2) -> v2.compareTo(v1))).map(entry -> entry.getKey()).findFirst();
 		
-		System.out.println(longestWord.get() +" <<<<<<<< longest word");
+		//Optional<String> longestWord1 = map.entrySet().stream().sorted(Comparator.comparing(Map.Entry::comparingByValue)).map(entry -> entry.getKey()).reduce((a,b) -> a.length() > b.length() ? a:b);
+		
+		System.out.println(longestWord.get() +" <<<<<<<<java8approach longest word");
 
 	}
 
@@ -70,7 +73,7 @@ public class LongestWord {
 			}
 		}
 		
-		System.out.println(maxLengthWord +" <<<<<<<< longest word");
+		System.out.println(maxLengthWord +" <<<<<<<<approach2 longest word");
 	}
 	
 	
