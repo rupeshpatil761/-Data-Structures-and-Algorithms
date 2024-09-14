@@ -1,4 +1,4 @@
-package com.dsa.practice.arrays;
+package com.dsa.practice.string;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;

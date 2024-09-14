@@ -64,7 +64,7 @@ public class TripSequence {
 		while(toCity != null) {
 			System.out.println(startCity +" -> " + toCity +", ");
 			startCity = toCity;
-			toCity = dataset.get(toCity);
+			toCity = dataset.get(startCity);
 		}
 		
 	}

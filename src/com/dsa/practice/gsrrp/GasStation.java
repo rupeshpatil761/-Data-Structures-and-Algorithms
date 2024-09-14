@@ -1,4 +1,4 @@
-package com.dsa.practice.arrays;
+package com.dsa.practice.gsrrp;
 
 public class GasStation {
 	
