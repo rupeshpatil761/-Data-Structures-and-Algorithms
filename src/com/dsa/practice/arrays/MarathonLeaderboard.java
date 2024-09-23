@@ -29,7 +29,7 @@ public class MarathonLeaderboard {
     static class RunnerComparator implements Comparator<Runner> {
         @Override
         public int compare(Runner r1, Runner r2) {
-            return Double.compare(r1.time, r2.time);
+            return Double.compare(r2.time, r1.time);
         }
     }
 

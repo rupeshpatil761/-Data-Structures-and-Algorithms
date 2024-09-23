@@ -16,8 +16,6 @@ public class RotatedArrayMin {
 			// find mid
 			int mid = (left + right) / 2;
 			
-			System.out.println(mid +" -- mid");
-			
 			// check if mid is smallest
 			if(array[mid] > array[right]) {
 				// means element is present in right half

@@ -2,7 +2,9 @@ package com.dsa.practice.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class TwoSum {
 	
@@ -22,12 +24,12 @@ public class TwoSum {
 		System.out.println("Hello from TwoSum");
 		
 		// input 1
-		int[] nums = new int[]{2,7,11,15};
-		int target = 9;
+		//int[] nums = new int[]{2,7,11,15};
+		//int target = 9;
 		
 		// input 2
-		//int[] nums = new int[]{3,2,4};
-		//int target = 6;
+		int[] nums = new int[]{3,2,4};
+		int target = 6;
 		
 		// input 3
 		//int[] nums = new int[]{3,3};
@@ -39,6 +41,12 @@ public class TwoSum {
 
 		int[] result  = twoSumNew(nums, target);
 		System.out.println("Result: " + Arrays.toString(result));
+		System.out.println("---------------------------");
+		
+		System.out.println("Two sum indices are : "+Arrays.toString(twoSumBestSolution(nums, target)));
+		
+		System.out.println("---------------------------");
+		findPairsWithSum(nums, target);
 	}
 	
 	// solution with O(n2) -- brute force approach
@@ -63,17 +71,54 @@ public class TwoSum {
     	 for(int i=0; i<nums.length;i++){
     		 numsMap.put(nums[i], i);
     	 }
-    	 System.out.println(numsMap +" <<<<<<<<<<< numsMap");
+    	 //System.out.println(numsMap +" <<<<<<<<<<< numsMap");
     	 for (int i = 0; i < nums.length; i++) {
     		 int complement = target - nums[i];
-				System.out.println(complement + " <<<<<<<<<<< complement" + " | i: " + i + " nums[i]: " + nums[i]
-						+ " | numsMap.get(complement): " + numsMap.get(complement));
+				//System.out.println(complement + " <<<<<<<<<<< complement" + " | i: " + i + " nums[i]: " + nums[i]
+						//+ " | numsMap.get(complement): " + numsMap.get(complement));
     		 if(numsMap.containsKey(complement) && numsMap.get(complement) != i) {
     			 return new int[]{i, numsMap.get(complement)};
     		 }
     	 }
     	 return null;
     }
+    
+    // *****************simple solution using hashmap
+    // https://www.youtube.com/watch?v=7jDS9KQEDbI
+    public static int[] twoSumBestSolution(int[] nums, int target) {
+    	System.out.println("Inside twoSumBestSolution");
+    	Map<Integer, Integer> map = new HashMap<>();
+    	
+    	for (int i=0; i<nums.length;i++) {
+    		int complement = target - nums[i];
+    		if(map.containsKey(complement)) {
+    			return new int[] { map.get(complement),i};
+    		}
+    		map.put(nums[i], i);
+    	}
+    	System.out.println("No two sum indices found");
+    	return null;
+    }
+    
+ // Time Complexity: O(n) — We iterate through the array once and perform constant time operations for each element.
+ 	// Space Complexity: O(n) — We use additional space for the hash sets 
+ 	public static void findPairsWithSum(int[] arr, int k) {
+ 		System.out.println("---------inside findPairsWithSum----");
+         Set<Integer> seen = new HashSet<>();
+         Set<String> pairs = new HashSet<>();
+
+         for (int num : arr) {
+             int complement = k - num;
+             if (seen.contains(complement)) {
+                 String pair = Math.min(num, complement) + "," + Math.max(num, complement);
+                 if (!pairs.contains(pair)) { // to have unique pairs
+                     pairs.add(pair);
+                     System.out.println("(" + num + ", " + complement + ")");
+                 }
+             }
+             seen.add(num);
+         }
+     }
     
     //https://medium.com/@AlexanderObregon/solving-the-two-sum-problem-on-leetcode-a-java-walkthrough-3388ce0186e4
 }

@@ -69,6 +69,6 @@ public class FractionToDecimal {
 			remainderMap.put(remainder, result.length());
 		}
 		 
-		 return result.toString();
+		return result.toString();
 	 }
 }

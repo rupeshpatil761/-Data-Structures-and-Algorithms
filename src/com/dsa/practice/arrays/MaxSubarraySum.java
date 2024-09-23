@@ -18,7 +18,8 @@ public class MaxSubarraySum {
 
 	public static void main(String[] args) {
 		
-		//naiveApproach();
+		naiveApproach();
+		System.out.println("------------------------------");
 		kadaneAlgoApproach();
 	}
 	
@@ -43,8 +44,9 @@ public class MaxSubarraySum {
 	// O(n) -- kadane's algorithm approach
 	// Approach says: Lets assume, each element in array is a Gujrathi businessman..
 	// Gujrathi community supports each other to grow their business
-	// lets say two business mans joins together if their combined business value is greater than or equal to 0 ... 
-	// Otherwise businessman will start his own business
+	// lets say two business mans joins together :
+	// -- if their combined business value is greater than or equal to 0 ... 
+	// -- Otherwise businessman will start his own business
 	private static void kadaneAlgoApproach() {
 		int[] nums = {-2,1,-3,4,-1,2,1,-5,4}; //output should be 6;
 		int maxSum = nums[0];
@@ -58,10 +60,8 @@ public class MaxSubarraySum {
 				sum = nums[i];
 			}
 			// check if sum is greater than maxSum -- override maxSum
-			if(sum>maxSum) {
-				maxSum = sum;
-			}
-			System.out.println("---Sum: "+sum + " | maxSum: "+maxSum);
+			maxSum = Math.max(sum, maxSum);
+			//System.out.println("---Sum: "+sum + " | maxSum: "+maxSum);
 		}
 		System.out.println(maxSum +" <<<<<<<<maxSum");
 	}

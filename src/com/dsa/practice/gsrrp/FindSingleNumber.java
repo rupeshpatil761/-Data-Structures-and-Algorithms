@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FindSingleNumber {
 
 	public static void main(String[] args) {
-		int nums[] = {4,1,2,1,2};
+		int nums[] = {4,1,2,1,2}; // output should be 4
 		
 		System.out.println("Input array is "+Arrays.toString(nums));
 		

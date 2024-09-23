@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class FindMissingNumbers {
 
 	public static void main(String[] args) {
-		int nums[] = {1,2,4,5,6};
+		int nums[] = {1,2,3,5,6};
 		System.out.println("Input array is "+Arrays.toString(nums));
 		
 		int M=Integer.MIN_VALUE;

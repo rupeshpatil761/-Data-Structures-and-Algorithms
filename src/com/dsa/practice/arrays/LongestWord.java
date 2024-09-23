@@ -74,7 +74,4 @@ public class LongestWord {
 		
 		System.out.println(maxLengthWord +" <<<<<<<<approach2 longest word");
 	}
-	
-	
-
 }

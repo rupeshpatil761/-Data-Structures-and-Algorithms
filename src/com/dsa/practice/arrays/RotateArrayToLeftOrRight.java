@@ -34,6 +34,35 @@ public class RotateArrayToLeftOrRight {
 		}
 	}
 	
+	
+	// https://leetcode.com/problems/rotate-array/description/
+	// https://www.youtube.com/watch?v=0OTPqrEd74g
+	private static void leetCode189Solution() {
+		int[] array = {1,2,3,4,5,6,7};  // output: 5,6,7,1,2,3,4
+		int k = 3;
+		int n = array.length;
+		
+		System.out.println("leetCode189Solution: before reverse by k : "+Arrays.toString(array));
+		
+		k = k %n; //  to handle index out of bounds
+		
+		// full rotate
+		reverseArray(array, 0, n-1);
+		
+		// o to k rotate
+		reverseArray(array, 0, k-1);
+		
+		// k to n-1 rotate
+		reverseArray(array, k, n-1);
+		
+		System.out.println("leetCode189Solution : after reverse by k : "+Arrays.toString(array));
+		
+	}
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
 		int[] array = {1,2,3,4,5};  // output: 23451
@@ -68,12 +97,15 @@ public class RotateArrayToLeftOrRight {
 		
 		// time complexity is o(n)
 		// even all above 3 calls executes n time i.e. 3n ..3 is constant so o(n)
+		
+		leetCode189Solution();
 	}
 	
 	// IMP ************ To reverse the array to right just do below
 	// https://www.youtube.com/watch?v=ENcnXXiRT6E  -- to rotate right  -- leetcode 189
 	// https://leetcode.com/problems/rotate-array/
 	
+	//leetCode189Solutionn() method solution for below
 	/**
 	 * Rotate to RIGHT Example 1:
 		Input: nums = [1,2,3,4,5,6,7], k = 3

@@ -54,7 +54,6 @@ public class FindBestAverageStudentScore {
 		 // Output the result
         System.out.println("The student with the best average grade is: " + bestStudent);
         System.out.println("Their average grade is: " + bestAverageGrade);
-		
 	}
 
 }
