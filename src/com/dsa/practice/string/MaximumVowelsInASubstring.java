@@ -4,20 +4,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MaximumVowelsInASubstring {
+	
+	//https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 
 	public static void main(String... args) {
 		String s = "abciiidef";
 		int k = 3;
+		//Output: 3  --	Explanation: The substring "iii" contains 3 vowel letters.
 		System.out.println("Result: " + maxVowels(s, k));
 		
 		
 		s = "aeiou";
 		k = 2;
+		// Output: 2 -- Explanation: Any substring of length 2 contains 2 vowels.
 		System.out.println("Result: " + maxVowels(s, k));
 		
 		
 		s = "leetcode";
 		k = 3;
+		// Output: 2 -	Explanation: "lee", "eet" and "ode" contain 2 vowels.
 		System.out.println("Result: " + maxVowels(s, k));
 
 	}

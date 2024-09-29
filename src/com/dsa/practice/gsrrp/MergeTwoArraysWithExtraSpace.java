@@ -2,7 +2,7 @@ package com.dsa.practice.gsrrp;
 
 import java.util.Arrays;
 
-public class MergeTwoSortedArrays {
+public class MergeTwoArraysWithExtraSpace {
 	
 	/**
 	 * Time Complexity: O(m+n)

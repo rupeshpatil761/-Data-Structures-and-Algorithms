@@ -7,7 +7,11 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class FirstNonRepeat {
+public class FirstNonRepeat extends DecodeString {
+	
+	public static String decodeStringGithub(String s) {
+		return null;
+	}
 
 	public static void main(String[] args) {
 

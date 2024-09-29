@@ -26,5 +26,8 @@ public class CollectorsMappingExample {
         mapYearsOfExperienceAndNames.forEach((key,value) ->{
             System.out.println("key = " + key + " value = " + value);
         });
+        
+        // Another example:
+        // Fetch customers email ids from list of orders and store in list 
     }
 }
