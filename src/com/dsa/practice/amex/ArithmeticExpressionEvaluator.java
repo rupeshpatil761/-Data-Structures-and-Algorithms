@@ -6,11 +6,11 @@ public class ArithmeticExpressionEvaluator {
 
     public static void main(String[] args) {
         String expression = "1+2*3/4-1";
-        double result = evaluateExpressionRupesh(expression);
+        double result = evaluateExpression(expression);
         System.out.println(result); // Output: 1.5
     }
     
-    private static double evaluateExpressionRupesh(String expression) {
+    private static double evaluateExpression(String expression) {
 
     	// can we have decimal numbers ? yes
     	// can we have number greater than 9 ? yes

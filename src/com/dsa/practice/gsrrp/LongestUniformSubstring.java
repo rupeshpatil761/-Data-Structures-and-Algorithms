@@ -10,6 +10,9 @@ public class LongestUniformSubstring {
 		
 		str = "rupessssh";
 		
+		str = "abbbccda";
+		
+		
 		// handle null and empty cases
 		
 		int currentLength = 1;
@@ -28,7 +31,7 @@ public class LongestUniformSubstring {
 				currentIndex = i+1;
 			}
 		}
-		
+		System.out.println(currentLength+" <<<<<<<currentLength | currentIndex : "+currentIndex);
 		System.out.println(maxLength+" <<<<<<<maxLength | maxIndex : "+maxIndex);
 	}
 }

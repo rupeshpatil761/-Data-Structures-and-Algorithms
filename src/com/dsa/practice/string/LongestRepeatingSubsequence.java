@@ -8,6 +8,7 @@ public class LongestRepeatingSubsequence {
 		System.out.println("Result: "+longestRepeatingSubstringUsingRecursion("aabb"));
 		System.out.println("Result: "+longestRepeatingSubstringUsingRecursion("axxxy"));
 		System.out.println("Result: "+longestRepeatingSubstringUsingRecursion("abacbc"));
+		System.out.println("Result: "+longestRepeatingSubstringUsingRecursion("zxyzxyz"));
 		
 	}
 	

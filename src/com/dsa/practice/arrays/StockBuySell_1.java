@@ -3,7 +3,7 @@ package com.dsa.practice.arrays;
 public class StockBuySell_1 {
 
 	public static void main(String[] args) {
-		int[] nums = {7,1,5,3,6,4};
+		int[] nums = {7,1,5,3,6,4}; // 10,1,5,6,7,1
 		linearComplexityApporach(nums);
 		
 		bestApproach(nums);

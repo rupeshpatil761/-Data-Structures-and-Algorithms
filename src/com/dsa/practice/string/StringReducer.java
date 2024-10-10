@@ -21,7 +21,7 @@ public class StringReducer {
 
 		String str2 = "geeksforgeeks";
 		int k2 = 3;
-		//System.out.println("Reduced String 2: " + reduceString(str2, k2)); // Output: geeksforgeeks
+		System.out.println("Reduced String 2: " + reduceString(str2, k2)); // Output: geeksforgeeks
 	}
 
 	

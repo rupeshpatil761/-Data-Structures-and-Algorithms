@@ -67,7 +67,7 @@ public class SortVowelsInString {
 	}
 	
 
-	// time complexity O(n log n) -- sorting of vowels
+	// time complexity O(n)
 	// space complexity : O(n)
 	private static String approach1(String str) {
 		

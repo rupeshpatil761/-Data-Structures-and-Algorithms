@@ -3,7 +3,7 @@ package com.dsa.practice.string;
 public class FirstOccuranceIndexInString {
 
 	public static void main(String[] args) {
-
+		//https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 		/***
 		 * Input: haystack = "sadbutsad", needle = "sad" 
 		 * Output: 0 

@@ -1,5 +1,6 @@
 package com.dsa.practice.gsrrp;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class FirstNonRepeatChar {
 	// Using this approach improves efficiency by reducing the time complexity from O(n^2) to O(n), where n is the length of the string.
 	// Time & space complexity : O(n)
 	public static void java8Approach(String str) {
+		
 		  // Step 1: Count occurrences of each character
         Map<Character, Long> charCountMap = str.chars()
             .mapToObj(c -> (char) c)
@@ -54,6 +56,13 @@ public class FirstNonRepeatChar {
             .findFirst();
         
         System.out.println("java8Approach -- firstNonRepeating: "+firstNonRepeating.get());
+        
+        //////////////OR
+        
+        String res = Arrays.stream(str.split("")).
+				filter(ch -> str.indexOf(ch) == str.lastIndexOf(ch)).findFirst().get();
+		
+		System.out.println("java8Approach 2 - findFirstNonRepeatingWord : "+res);
 	}
 
 	static int firstNonRepeatingNumber(int arr[]) {

@@ -33,7 +33,8 @@ public class ReverseStringWithSpecialCharacters {
 	    }
 
 	    public static void main(String[] args) {
-	        String input = "a-bC-dEf-ghIj";
+	        //String input = "a-bC-dEf-ghIj";
+	        String input = "Swa$pn&il";
 	        String output = reverseString(input);
 	        System.out.println("Original string: " + input);
 	        System.out.println("Reversed string: " + output);

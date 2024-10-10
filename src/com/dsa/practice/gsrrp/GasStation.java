@@ -2,6 +2,7 @@ package com.dsa.practice.gsrrp;
 
 public class GasStation {
 	
+	// https://leetcode.com/problems/gas-station/description/
 	
 	//The time complexity is O(N), where N is the number of stations, making it suitable for large inputs. 
 	public static int canCompleteCircuit(int[] gas, int[] cost) {
@@ -22,7 +23,7 @@ public class GasStation {
             if (currentBalance < 0) {
                 startIndex = i + 1;
                 currentBalance = 0;
-                System.out.println("Reseting startIndex and currentBalance");
+                System.out.println("Reseting startIndex and currentBalance | new startIndex: "+startIndex);
             }
             System.out.println("--------------------");
         }
@@ -32,8 +33,10 @@ public class GasStation {
     }
 
     public static void main(String[] args) {
-        int[] gas = {1, 2, 3, 4, 5};
-        int[] cost = {3, 4, 5, 1, 2};
+        //int[] gas = {1, 2, 3, 4, 5};
+        //int[] cost = {3, 4, 5, 1, 2}; // output should be 3
+    	 int[] gas = {2, 3, 4};
+         int[] cost = {3, 4, 3};  // output should be -1
         int result = canCompleteCircuit(gas, cost);
         System.out.println("result i.e. minimum starting gas station’s index : "+result);  // Output: 3
     }

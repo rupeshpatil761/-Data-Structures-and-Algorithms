@@ -31,6 +31,8 @@ public class LoopDetection {
             cycyleList.add(tortise);
             
         } while (tortise != hare);
+        
+        System.out.println("after first do-while -- tortise: "+tortise + " and hare: "+hare);
 
         // Phase 2: Determine the length of the loop
         int cycleCount = 0;

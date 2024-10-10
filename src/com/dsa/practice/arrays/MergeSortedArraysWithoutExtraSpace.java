@@ -10,11 +10,10 @@ public class MergeSortedArraysWithoutExtraSpace {
 	// time complexity: O(m+n) -- We are iterating through both arrays once, so the time complexity is O(m+n).
 	// space complexity: o(1)
 	public static void main(String[] args) {
-		int[] nums1 = {0};//{1,2,3,0,0,0};
-		int m = 0; //3 // elements present in nums1
-		int[] nums2 = {1};//{2,5,6};
-		int n = 1; //3 // elements present in nums2
-		
+		int[] nums1 = {1,2,3,0,0,0}; // {0};
+		int m = 3; // elements present in nums1 // 0;
+		int[] nums2 = {2,5,6}; // {1};
+		int n = 3; // elements present in nums2  //1
 		int[] result =  merge(nums1, m, nums2, n);
 		
 		System.out.println("Result: "+Arrays.toString(result));
