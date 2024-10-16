@@ -7,7 +7,8 @@ import java.util.Set;
 public class RemoveDuplicate {
 
 	public static void main(String[] args) {
-		int[] nums = {1,1,2}; //{0,0,1,1,1,2,2,3,3,4};
+		//int[] nums = {1,1,2}; //{0,0,1,1,1,2,2,3,3,4};
+		int[] nums = {0,0,1,1,1,2,2,3,3,4};
 		int result = removeDuplicatesUsingTwoPointers(nums);
 		System.out.println("Result: "+result);
 	}

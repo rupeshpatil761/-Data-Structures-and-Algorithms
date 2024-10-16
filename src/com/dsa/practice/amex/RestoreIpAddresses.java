@@ -12,15 +12,7 @@ public class RestoreIpAddresses {
 		
 		// Approach 1
 		restoreIpAddressesApproach1("25525511135");
-		//restoreIpAddressesApproach1("0000");
-		//restoreIpAddressesApproach1("101023");		
-		
-		// Approach 2
-		
-		//restoreIpAddressesApproach2("25525511135");
-		
-		//Approach 3
-		//bruteForceApproach("25525511135");
+		//restoreIpAddressesApproach1("101023");
 	}
 
 	// Approach 1

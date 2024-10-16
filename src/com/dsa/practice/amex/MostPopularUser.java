@@ -27,7 +27,7 @@ public class MostPopularUser {
 	
 	private static int mostPopularUserId(List<User> users) {
 		
-		List<Integer> subscriptions = users.stream().map(user -> user.subscriptions).flatMap(List::stream).collect(Collectors.toList());
+		List<Integer> subscriptions = users.stream().flatMap(user -> user.subscriptions.stream()).collect(Collectors.toList());
 		
 		System.out.println("all subscriptions: "+subscriptions);
 		

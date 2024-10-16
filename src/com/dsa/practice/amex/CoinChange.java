@@ -39,7 +39,7 @@ public class CoinChange {
 		// try to find for each amount from 1 to Amount how many coins are required
 		for (int i = 1; i <= amount; i++) {
 
-			dp[i] = Integer.MAX_VALUE;
+			dp[i] = Integer.MAX_VALUE; // -1
 			
 			// try with each coin to make i amount
 			for (int coin : coins) {

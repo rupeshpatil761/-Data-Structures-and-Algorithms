@@ -5,7 +5,9 @@ import java.util.Stack;
 public class ArithmeticExpressionEvaluator {
 
     public static void main(String[] args) {
-        String expression = "1+2*3/4-1";
+        //String expression = "12+2*3/4-1";
+    	String expression = "12+3-2";
+        
         double result = evaluateExpression(expression);
         System.out.println(result); // Output: 1.5
     }
@@ -41,6 +43,7 @@ public class ArithmeticExpressionEvaluator {
     				}
     				j++;
     			}
+    			i = j-1;
     			numberStack.push(Double.valueOf(tempStr.toString()));
     		} else if(isOperatorNew(currentChar)) {
     			if(!operatorsStack.isEmpty() && (precedenceNew(currentChar) <= precedenceNew(operatorsStack.peek()))) {

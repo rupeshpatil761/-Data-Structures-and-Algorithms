@@ -49,6 +49,23 @@ public class TwoSum {
 		findPairsWithSum(nums, target);
 	}
 	
+	// *****************simple solution using hashmap
+    // https://www.youtube.com/watch?v=7jDS9KQEDbI
+    public static int[] twoSumBestSolution(int[] nums, int target) {
+    	System.out.println("Inside twoSumBestSolution");
+    	Map<Integer, Integer> map = new HashMap<>();
+    	
+    	for (int i=0; i<nums.length;i++) {
+    		int complement = target - nums[i];
+    		if(map.containsKey(complement)) {
+    			return new int[] { map.get(complement),i};
+    		}
+    		map.put(nums[i], i);
+    	}
+    	System.out.println("No two sum indices found");
+    	return null;
+    }
+	
 	// solution with O(n2) -- brute force approach
     public static int[] twoSum(int[] nums, int target) {
         for(int i=0; i<nums.length;i++){
@@ -81,23 +98,6 @@ public class TwoSum {
     		 }
     	 }
     	 return null;
-    }
-    
-    // *****************simple solution using hashmap
-    // https://www.youtube.com/watch?v=7jDS9KQEDbI
-    public static int[] twoSumBestSolution(int[] nums, int target) {
-    	System.out.println("Inside twoSumBestSolution");
-    	Map<Integer, Integer> map = new HashMap<>();
-    	
-    	for (int i=0; i<nums.length;i++) {
-    		int complement = target - nums[i];
-    		if(map.containsKey(complement)) {
-    			return new int[] { map.get(complement),i};
-    		}
-    		map.put(nums[i], i);
-    	}
-    	System.out.println("No two sum indices found");
-    	return null;
     }
     
  // Time Complexity: O(n) — We iterate through the array once and perform constant time operations for each element.

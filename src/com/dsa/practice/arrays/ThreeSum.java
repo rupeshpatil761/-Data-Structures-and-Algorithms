@@ -10,6 +10,7 @@ public class ThreeSum {
 
 	// time complexity will be o(n2)
 	// space complexity: o(1)
+	// This one of the problem where we get solution using n2 as best time complexity
 	public static void main(String[] args) {
 		int[] array = {-1,0,1,2,-1,-4};
 		

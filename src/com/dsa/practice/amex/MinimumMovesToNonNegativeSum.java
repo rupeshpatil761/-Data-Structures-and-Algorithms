@@ -14,11 +14,11 @@ public class MinimumMovesToNonNegativeSum {
 	private static int minMovesToNonNegativeSum(int[] arr) {
 		System.out.println("Slide window apporach 2| Input nums: " + Arrays.toString(arr));
         int n = arr.length;
-        int half_n = n / 2;
+        int mid = n / 2;
 
         // Step 1: Calculate the initial sum of the first half
         int initialSum = 0;
-        for (int i = 0; i < half_n; i++) {
+        for (int i = 0; i < mid; i++) {
             initialSum += arr[i];
         }
 
@@ -32,10 +32,10 @@ public class MinimumMovesToNonNegativeSum {
         int currentSum = initialSum;
         int moves = 0;
 
-        for (int i = 0; i < half_n; i++) {
+        for (int i = 0; i < mid; i++) {
             moves++;
             currentSum -= arr[i];  // Remove the moved element from the sum
-            currentSum += arr[half_n + i];  // Add the corresponding element from the second half
+            currentSum += arr[(mid + i)%n];  // Add the corresponding element from the second half
 
             // Check if the current sum is non-negative
             if (currentSum >= 0) {
@@ -53,6 +53,43 @@ public class MinimumMovesToNonNegativeSum {
        // minMovesToNonNegativeSum(new int[]{1, -2, -3, 4, 5, -1}); // Output: 1
        // minMovesToNonNegativeSum(new int[]{10, -5, -5, -5, 20, -10}); // Output: 0
         minMovesToNonNegativeSum(new int[]{-3, -2, 4, 5, 1, 2}); // Output: 1
+        rupeshPractice(new int[]{-3, -2, 4, 5, 1, 2}); // Output: 1
         //minMovesToNonNegativeSum(new int[]{1, 2, 3, -6, 5, 6}); // Output: 1
+    }
+    
+    
+    private static int rupeshPractice(int[] arr) {
+    	//{-3, -2, 4, 5, 1, 2}); // Output: 1
+    	int n = arr.length;
+    	int mid = n/2;
+    	
+    	int initialSum = 0;
+    	
+    	for(int i=0; i<mid; i++) {
+    		initialSum += arr[i];
+    	}
+
+    	int movesRequired = 0;
+    	
+    	if(initialSum >= 0) {
+    		return movesRequired;
+    	}
+    	
+    	int currentSum = initialSum;
+    	
+    	for(int i=0; i<mid; i++) {
+    		
+    		movesRequired++;
+    		
+    		currentSum = currentSum - arr[i];
+    		currentSum = currentSum + arr[i+mid];
+    		
+    		if(currentSum >= 0) {
+        		return movesRequired;
+        	}
+    		
+    	}
+    	 System.out.println("Minimum moves required: " + movesRequired + " \n");
+    	return movesRequired;
     }
 }
