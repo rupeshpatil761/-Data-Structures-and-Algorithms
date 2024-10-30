@@ -8,7 +8,7 @@ public class StockBuySell_2 {
 		bestApproach(nums);
 	}
 
-	// time complexity : O(1)
+	// time complexity : O(n)
 	// space complexity : O(1)
 	private static int bestApproach(int[] nums) {
 		int profit = 0;

@@ -1,5 +1,6 @@
 package com.dsa.practice.amex;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -55,13 +56,20 @@ public class TransactionsDesign {
 
 		List<Transaction> transactionsByDateRange = dateRangeSearchService.searchRecords(searchData);
 		System.out.println("transactionsByDateRange: " + transactionsByDateRange);
+		
+		DateAndVendorSearchService dateAndVendorSearchService = new DateAndVendorSearchService();
+		searchData.startDate = "09/01/2021";
+		searchData.endDate = "11/01/2021";
+		searchData.vendorName = "Apple";
+		String totalSum = dateAndVendorSearchService.getTotalAmountByDateAndVendor(searchData);
+		System.out.println("totalSum: " + totalSum);
 	}
 
 }
 
 class TransactionUtil {
 
-	public static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	public static DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
 	private static List<Transaction> transactionsList = new ArrayList<>();
 
@@ -88,7 +96,17 @@ class TransactionUtil {
 		inputs.add("01/01/2023 $100.44 FitnessClub (Exercise)");
 		inputs.add("05/07/2022 $50.25 Xerox (Instrument)");
 		inputs.add("09/01/2023 $70.55 Apple (Food)");
+		inputs.add("09/01/2021 $70.55 Apple (Food)");
+		inputs.add("11/01/2021 $80.55 Apple (Food)");
+		inputs.add("10/01/2021 $90.55 Apple (Food)");
 		return inputs;
+	}
+
+	public static boolean isInDateRange(LocalDate targetDate, String start, String end) {
+		LocalDate startDate = LocalDate.parse(start, TransactionUtil.dateFormatter);
+		LocalDate endDate = LocalDate.parse(end, TransactionUtil.dateFormatter);
+		return (targetDate.isEqual(endDate) || targetDate.isBefore(endDate))
+				&& (targetDate.isEqual(startDate) || targetDate.isAfter(startDate));
 	}
 }
 
@@ -98,6 +116,14 @@ class Transaction {
 	String category;
 	LocalDate date;
 	double price;
+	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
 	public Transaction() {
 	}
@@ -164,15 +190,32 @@ class DateRangeSearchService implements SearchService {
 		}
 		List<Transaction> inputTransactions = TransactionUtil.getTestInputData();
 
-		return inputTransactions.stream().filter(t -> isInDateRange(t.date, searchData.startDate, searchData.endDate))
+		return inputTransactions.stream()
+				.filter(t -> TransactionUtil.isInDateRange(t.date, searchData.startDate, searchData.endDate))
 				.collect(Collectors.toList());
 	}
+}
 
-	private static boolean isInDateRange(LocalDate targetDate, String start, String end) {
-		LocalDate startDate = LocalDate.parse(start, TransactionUtil.dateFormatter);
-		LocalDate endDate = LocalDate.parse(end, TransactionUtil.dateFormatter);
-		return (targetDate.isEqual(endDate) || targetDate.isBefore(endDate))
-				&& (targetDate.isEqual(startDate) || targetDate.isAfter(startDate));
+class DateAndVendorSearchService {
+
+	public String getTotalAmountByDateAndVendor(SearchData searchData) {
+
+		if (searchData.startDate == null || searchData.endDate == null) {
+			return "$0.0";
+		}
+
+		if (searchData.vendorName == null || searchData.vendorName.length() < 1) {
+			return "$0.0";
+		}
+
+		List<Transaction> transcations = TransactionUtil.getTestInputData();
+
+		double sumOfTrnx = transcations.stream()
+				.filter(t -> TransactionUtil.isInDateRange(t.date, searchData.startDate, searchData.endDate)
+						&& t.vendorName.equalsIgnoreCase(searchData.vendorName))
+				.collect(Collectors.summingDouble(Transaction::getPrice));
+		System.out.println("sumOfTrnx: " + sumOfTrnx);
+		return "$" + new DecimalFormat("#.00").format(sumOfTrnx);
 	}
 }
 

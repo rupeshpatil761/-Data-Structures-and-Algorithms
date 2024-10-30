@@ -1,4 +1,4 @@
-package com.dsa.practice.java8.functionalprogg;
+package com.dsa.practice.java8.streams;
 
 import java.util.function.Function;
 

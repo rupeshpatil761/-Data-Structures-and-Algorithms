@@ -3,16 +3,33 @@ package com.dsa.practice.arrays;
 public class StockBuySell_1 {
 
 	public static void main(String[] args) {
-		int[] nums = {7,1,5,3,6,4}; // 10,1,5,6,7,1
+		int[] nums = {10,1,5,6,7,1};//7,1,5,3,6,4}; // 10,1,5,6,7,1
 		linearComplexityApporach(nums);
 		
 		bestApproach(nums);
+		
+		maxProfit(nums);
 	}
+	
+	// kadanes algo approach
+	private static int bestApproach(int[] prices) {
+        int buy = prices[0];
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < buy) {
+                buy = prices[i];
+            } else if (prices[i] - buy > profit) {
+                profit = prices[i] - buy;
+            }
+        }
+        System.out.println("kadanes algo approach | Max Profit: "+profit);
+        return profit;
+    }
 	
 	
 	// time complexity : O(1)
 	// space complexity : O(1)
-	private static int bestApproach(int[] prices) {
+	private static int maxProfit(int[] prices) {
 		System.out.println("inside bestApproach");
 		int maxProfit = 0;
 		int minSoFar = prices[0];

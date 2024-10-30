@@ -3,6 +3,7 @@ package com.dsa.practice.amex;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -34,12 +35,15 @@ public class StatisticsCalculator {
 
     // middle number
     public static double calculateMedian(int[] numbers) {
+    	
+    	List<Integer> list = Arrays.stream(numbers).mapToObj(Integer::valueOf).sorted().collect(Collectors.toList());
+    	
         Arrays.sort(numbers);
-        int length = numbers.length;
+        int length = list.size();
         if (length % 2 == 0) {
-            return (numbers[length / 2 - 1] + numbers[length / 2]) / 2.0;
+            return (list.get(length / 2 - 1) + list.get(length / 2)) / 2.0;
         } else {
-            return numbers[length / 2];
+            return list.get(length / 2);
         }
     }
     

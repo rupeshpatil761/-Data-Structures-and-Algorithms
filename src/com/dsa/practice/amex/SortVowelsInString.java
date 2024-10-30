@@ -24,14 +24,14 @@ public class SortVowelsInString {
 		
 		System.out.println("approach1 output: "+output);
 		
-		output = approach2(str);
+		output = bestApproach(str);
 		
 		System.out.println("approach2 output: "+output);
 	}
 	
-	// time complexity O(n log n) -- sorting of vowels
+	// time complexity O(n )
 	// space complexity : O(n)
-	private static String approach2(String str) {
+	private static String bestApproach(String str) {
 		
 		String vowelsString = "AEIOUaeiou";
 		int j = 0;

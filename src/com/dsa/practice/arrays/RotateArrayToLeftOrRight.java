@@ -44,7 +44,7 @@ public class RotateArrayToLeftOrRight {
 		
 		System.out.println("leetCode189Solution: before reverse by k : "+Arrays.toString(array));
 		
-		k = k %n; //  to handle index out of bounds
+		k = k % n; //  to handle index out of bounds
 		
 		// full rotate
 		reverseArray(array, 0, n-1);
@@ -65,7 +65,8 @@ public class RotateArrayToLeftOrRight {
 	
 	public static void main(String[] args) {
 		
-		int[] array = {1,2,3,4,5};  // output: 23451
+		//int[] array = {1,2,3,4,5};  // output: 23451
+		int[] array = {1,2,3,4,5,6,7};  // output: 4, 5, 6, 7, 1, 2, 3;
 		int k = 3;
 		int n = array.length;
 		
