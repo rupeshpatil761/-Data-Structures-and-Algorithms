@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IsomorphicString {
+	
+	// EASY https://leetcode.com/problems/isomorphic-strings/description/ 
 
 	public static void main(String[] args) {
 
@@ -71,3 +73,17 @@ public class IsomorphicString {
 	}
 
 }
+/*
+String s = "foo";
+String t = "bar";
+output: false
+Explanation: The strings s and t can not be made identical as 'o' needs to be mapped to both 'a' and 'r'.
+
+String s = "egg";
+String t = "add";
+output: true
+
+String s = "badc";
+String t = "baba";  == false
+
+*/

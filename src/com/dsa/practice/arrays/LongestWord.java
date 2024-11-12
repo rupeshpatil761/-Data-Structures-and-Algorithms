@@ -58,7 +58,9 @@ public class LongestWord {
 		}
 
 		// remove special chars
-		str = str.replaceAll("[-+.^:,!&]","");
+		//str = str.replaceAll("[-+.^:,!&]","");
+		
+		str = str.replaceAll("[^a-z0-9A-Z ]","");
 		
 		if(str == null || str.length() < 1) {
 			return;

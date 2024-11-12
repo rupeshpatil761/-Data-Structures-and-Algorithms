@@ -1,10 +1,12 @@
 package com.dsa.practice.gsrrp;
 
-import java.util.Arrays;
-
 public class RainWaterTrapping {
 	
+	// HARD
+	
 	// https://www.youtube.com/watch?v=UZG3-vZlFM4&t=206s
+	
+	//  https://leetcode.com/problems/trapping-rain-water/ 
 	
 	public static void main(String[] args) {
 		//int[] height = {0,1,0,2,1,0,1,3,2,1,2,1}; // output should be 6

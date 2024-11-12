@@ -14,7 +14,7 @@ public class FindMissingNumbers {
                 M=i;
             }
         }
-        System.out.println(M+" <<<<< M");
+        System.out.println(M+" <<<<< M"); // maximum value in input array
 		
 		int[] tempArray = new int[M]; // size of array will be depend on max number in array
 		

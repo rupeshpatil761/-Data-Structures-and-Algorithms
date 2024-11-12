@@ -2,7 +2,7 @@ package com.dsa.practice.arrays;
 
 public class ContainerWithMaxWater {
 	
-	// https://leetcode.com/problems/container-with-most-water/
+	// Medium - https://leetcode.com/problems/container-with-most-water/
 	
 	// https://www.youtube.com/watch?v=w7ftYsZtIbs
 

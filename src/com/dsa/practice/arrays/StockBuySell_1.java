@@ -1,6 +1,8 @@
 package com.dsa.practice.arrays;
 
 public class StockBuySell_1 {
+	
+	// https://leetcode.com/problems/best-time-to-buy-and-sell-stock
 
 	public static void main(String[] args) {
 		int[] nums = {10,1,5,6,7,1};//7,1,5,3,6,4}; // 10,1,5,6,7,1
@@ -12,6 +14,8 @@ public class StockBuySell_1 {
 	}
 	
 	// kadanes algo approach
+	// T - O(n)
+	// S - O(1)
 	private static int bestApproach(int[] prices) {
         int buy = prices[0];
         int profit = 0;
@@ -27,7 +31,7 @@ public class StockBuySell_1 {
     }
 	
 	
-	// time complexity : O(1)
+	// time complexity : O(n)
 	// space complexity : O(1)
 	private static int maxProfit(int[] prices) {
 		System.out.println("inside bestApproach");
