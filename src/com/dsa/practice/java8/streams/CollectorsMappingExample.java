@@ -16,7 +16,9 @@ public class CollectorsMappingExample {
         namesList= Instructors.getAll().stream()
                 .collect(Collectors.mapping(Instructor::getName, Collectors.toList()));
 
-        namesList.forEach(System.out::println);
+        //namesList.forEach(System.out::println);
+        
+        System.out.println("namesList: "+namesList);
 
         //Instructors by their years of experience
         Map<Integer, List<String>> mapYearsOfExperienceAndNames = Instructors.getAll().stream()

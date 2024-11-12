@@ -14,6 +14,7 @@ public class MergeSortedArraysWithoutExtraSpace {
 		int m = 3; // elements present in nums1 // 0;
 		int[] nums2 = {2,5,6}; // {1};
 		int n = 3; // elements present in nums2  //1
+		//Output: [1,2,2,3,5,6]
 		int[] result =  merge(nums1, m, nums2, n);
 		
 		System.out.println("Result: "+Arrays.toString(result));

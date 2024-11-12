@@ -70,26 +70,4 @@ public class StatisticsCalculator {
         int max = Arrays.stream(numbers).max().orElse(0);
         return max - min;
     }
-
-    private static String calculateMode(int[] numbers) {
-        Map<Integer, Integer> frequencyMap = new HashMap<>();
-        for (int num : numbers) {
-            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
-        }
-
-        int maxFrequency = 0;
-        StringBuilder modes = new StringBuilder();
-
-        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-            if (entry.getValue() > maxFrequency) {
-                maxFrequency = entry.getValue();
-                modes.setLength(0); // Reset modes if a new max is found
-                modes.append(entry.getKey());
-            } else if (entry.getValue() == maxFrequency) {
-                modes.append(", ").append(entry.getKey());
-            }
-        }
-
-        return (maxFrequency > 1) ? modes.toString() : "No mode";
-    }
 }

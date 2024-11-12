@@ -8,11 +8,12 @@ public class SortedArray {
 		System.out.println("Ans: "+ans);
 	}
 
-	private static boolean sorted(int[] arr, int i) {
-		if(i == arr.length-1) {
+	private static boolean sorted(int[] arr, int index) {
+		// base condition
+		if(index == arr.length-1) {
 			return true;
 		}
-		return arr[i] < arr[i+1] && sorted(arr, i+1);
+		return arr[index] < arr[index+1] && sorted(arr, index+1);
 	}
 
 }

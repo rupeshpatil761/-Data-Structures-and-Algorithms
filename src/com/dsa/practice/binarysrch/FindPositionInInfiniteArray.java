@@ -1,6 +1,8 @@
 package com.dsa.practice.binarysrch;
 
 public class FindPositionInInfiniteArray {
+	
+	// https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
 
 	public static void main(String[] args) {
 		int[] array = { 3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170};

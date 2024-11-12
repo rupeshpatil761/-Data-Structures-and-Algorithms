@@ -1,6 +1,9 @@
 package com.dsa.practice.arrays;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MoveZeros {
 	
@@ -23,6 +26,8 @@ public class MoveZeros {
 		//int[] nums = {4,2,4,0,0,3,0,5,1,0};
 		
 		solution2(nums);
+		
+		java8Solution(nums);
 		
 	}
 	
@@ -70,6 +75,14 @@ public class MoveZeros {
 		}
 		
 		System.out.println("Solution2 Result: "+Arrays.toString(nums));
+	}
+	
+	private static void java8Solution(int[] nums) {
+		List<Integer> nonZeroElements = Arrays.stream(nums).boxed().filter(n -> n != 0).collect(Collectors.toList());
+		Stream<Integer> zerosStream = Arrays.stream(nums).boxed().filter(n -> n == 0);
+		List<Integer> resultList = Stream.concat(nonZeroElements.stream(), zerosStream).collect(Collectors.toList());
+		System.out.println("Result List using java8 : "+resultList);
+		
 	}
 
 }

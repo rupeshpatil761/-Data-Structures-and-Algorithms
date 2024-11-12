@@ -6,11 +6,11 @@ public class FloorNumber {
 	// floor - smallest number in array lesser or equal to target
 	public static void main(String[] args) {
 		int[] array = {2,3,5,9,14,16,18};
-		//int target = 4; // output should be index 1 i.e 3 value
+		int target = 4; // output should be index 1 i.e 3 value
 		
 		//int target = 15; // output should be index 4 i.e 14 value
 		
-		int target =20; // output should be index -1
+		//int target =20; // output should be index -1
 		
 		int index = findFloor(array, target);
 		System.out.println("Result index: "+index);

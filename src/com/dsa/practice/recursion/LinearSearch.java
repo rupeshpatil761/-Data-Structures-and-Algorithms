@@ -24,25 +24,25 @@ public class LinearSearch {
 		return list;
 	}
 
-	private static int findIndex(int[] arr, int target, int i) {
-		if (i > arr.length - 1) {
+	private static int findIndex(int[] arr, int target, int index) {
+		if (index > arr.length - 1) {
 			return -1;
 		}
-		if (arr[i] == target) {
-			return i;
+		if (arr[index] == target) {
+			return index;
 		} else {
-			return findIndex(arr, target, i + 1);
+			return findIndex(arr, target, index + 1);
 		}
 	}
 
-	private static int findIndexFromLast(int[] arr, int target, int i) {
-		if (i < 0) {
+	private static int findIndexFromLast(int[] arr, int target, int index) {
+		if (index < 0) {
 			return -1;
 		}
-		if (arr[i] == target) {
-			return i;
+		if (arr[index] == target) {
+			return index;
 		} else {
-			return findIndexFromLast(arr, target, i - 1);
+			return findIndexFromLast(arr, target, index - 1);
 		}
 	}
 }

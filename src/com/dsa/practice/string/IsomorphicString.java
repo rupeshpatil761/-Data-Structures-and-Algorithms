@@ -1,7 +1,7 @@
 package com.dsa.practice.string;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Map;
 
 public class IsomorphicString {
 
@@ -11,10 +11,12 @@ public class IsomorphicString {
 		 * String s = "foo"; String t = "bar";
 		 */
 
-		String s = "badc";
-		String t = "baba";
+		String s = "egg";
+		String t = "add";
 
-		System.out.println("Result: " + isIsomorphicUsingMap(s, t));
+		System.out.println("isIsomorphicUsingMap Result: " + isIsomorphicUsingMap(s, t));
+		
+		System.out.println("isIsomorphicNew Result: " + isIsomorphicNew(s, t));
 	}
 
 	public static boolean isIsomorphic(String s, String t) {
@@ -45,16 +47,27 @@ public class IsomorphicString {
 		if (result) {
 			HashMap<Character, Character> map = new HashMap<>();
 			for (int i = 0; i < s.length(); i++) {
-				if (map.containsKey(s.charAt(i)) && !map.get(s.charAt(i)).equals(t.charAt(i)) || 
-						!map.containsKey(s.charAt(i)) && map.values().contains(t.charAt(i))) {
-						result = false;
-						break;
+				if (map.containsKey(s.charAt(i)) && !map.get(s.charAt(i)).equals(t.charAt(i))
+						|| !map.containsKey(s.charAt(i)) && map.values().contains(t.charAt(i))) {
+					result = false;
+					break;
 				} else {
 					map.put(s.charAt(i), t.charAt(i));
 				}
 			}
 		}
 		return result;
+	}
+
+	public static boolean isIsomorphicNew(String s, String t) {
+		Map<Character, Integer> map1 = new HashMap<>();
+		Map<Character, Integer> map2 = new HashMap<>();
+
+		for (Integer i = 0; i < s.length(); i++) {
+			if (map1.put(s.charAt(i), i) != map2.put(t.charAt(i), i))
+				return false;
+		}
+		return true;
 	}
 
 }

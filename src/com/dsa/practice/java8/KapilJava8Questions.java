@@ -2,10 +2,12 @@ package com.dsa.practice.java8;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Stack;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -63,13 +65,23 @@ public class KapilJava8Questions {
 		
 		String str = "the quick brown fox jumps over the lazy dog";
 		
-		String res = Arrays.stream(str.split("")).
-				filter(ch -> str.indexOf(ch) == str.lastIndexOf(ch)).peek(System.out::println).
-				findFirst().get();
+		String res = Arrays.stream(str.split(" "))
+				.filter(word -> str.indexOf(word) == str.lastIndexOf(word))
+				.findFirst().get();
 		
-		System.out.println("findFirstNonRepeatingWord : "+res);
+		System.out.println("findFirstNonRepeatingWord using indexOf : "+res);
 		
 		System.out.println(" -------------------");
+		
+		String firstNonRepeatingWord = Arrays.stream(str.split(" "))
+	            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting())) // Step 2: Count occurrences of each word
+	            .entrySet()
+	            .stream()
+	            .filter(entry -> entry.getValue() == 1) // Filter non-repeating words
+	            .map(Map.Entry::getKey) // Get the word (key) from the Map
+	            .findFirst().orElse(""); // Get the first non-repeating word
+		
+		System.out.println("using groupigBy findFirstNonRepeatingWord : "+firstNonRepeatingWord);
 	}
 
 	private static void formSmallestPossibleNumber() {
@@ -118,11 +130,14 @@ public class KapilJava8Questions {
 		
 		int[] array = {2, 34, 54, 23, 33, 20, 59, 11, 19, 37};
 		
-		Map<Integer, List<Integer>> map = Arrays.stream(array).boxed().collect(Collectors.groupingBy(n -> n / 10 * 10));
+		Map<Integer, List<Integer>> map = Arrays.stream(array).boxed().collect(Collectors.groupingBy(n -> n / 10 * 10, TreeMap::new, Collectors.toList()));
 		
 		System.out.println("groupByRange : "+map);
 		
 		System.out.println(" -------------------");
+		
+		//.boxed(): This method converts each primitive int into an Integer object. 
+		// Since streams in Java are object-based, and Map keys and values require objects, we need to box the integers.
 		
 	}
 
@@ -166,7 +181,7 @@ public class KapilJava8Questions {
 	
 
 	private static void stackApproach(String str) {
-		Stack<Character> charStack = new Stack<>();
+		Stack<Character> charStack = new Stack<>(); // LIFO
 		
 		char[] chars = str.toCharArray();
 		
@@ -261,7 +276,7 @@ public class KapilJava8Questions {
 	private static void removeDupliactesFromString() {
 		// 1) Remove duplicates from string and return in same order".
 		String s = "dabfcadef";
-
+		
 		String result = s.chars().distinct().mapToObj(c -> (char) c).map(c -> c.toString())
 				.collect(Collectors.joining());
 

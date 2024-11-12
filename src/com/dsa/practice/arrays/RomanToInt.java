@@ -19,10 +19,12 @@ public class RomanToInt {
 		String str = "MCMXCIV"; // output should be 1994
 		// Output: 1994
 		// Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+		
+		str = "III";  // o/p: 3
 		int ans = 0;
 		for(int i = 0; i < str.length(); i++) {
 			int currentInt = map.get(str.charAt(i));
-			if(i < str.length() -1 && currentInt < map.get(str.charAt(i+1))) {
+			if(i < str.length()-1 && currentInt < map.get(str.charAt(i+1))) {
 				ans -= currentInt;
 			} else {
 				ans+= currentInt;

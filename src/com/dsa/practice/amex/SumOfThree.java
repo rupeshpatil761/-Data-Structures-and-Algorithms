@@ -3,6 +3,8 @@ package com.dsa.practice.amex;
 import java.util.Arrays;
 
 public class SumOfThree {
+	
+	// MEDIUM LEVEL
 
 	// https://leetcode.com/problems/find-three-consecutive-integers-that-sum-to-a-given-number/description/
 	public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class SumOfThree {
 
 	// Time complexity: O(1)
 	private static int[] solution(int num) {
-		if(num%3!=0) {
+		if(num%3!=0) { // number should be divisible by 3 i.e. Remainder should be zero
 			return new int[]{};
 		} 
 		

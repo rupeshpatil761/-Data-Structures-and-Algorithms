@@ -15,17 +15,17 @@ public class LongestStringInList {
 		List<String> strings = Arrays
 	              .asList("apple", "banana", "cherry", "date", "grapefruit");
 		
-		Map<Integer, List<String>> map = strings.stream().collect(Collectors.groupingBy(String::length));
+		/*Map<Integer, List<String>> map = strings.stream().collect(Collectors.groupingBy(String::length));
 		
 		Optional<String> longestString = map.entrySet().stream().sorted(Entry.comparingByKey((l1,l2) -> l2.compareTo(l1))).flatMap(entry -> entry.getValue().stream()).findFirst();
 				
 		System.out.println("map: "+map);
 		
-		System.out.println("longestString: " +longestString);
+		System.out.println("longestString: " +longestString);*/
 		
 		// BEST APPROACH
 		
-		longestString = strings.stream().max(Comparator.comparingInt(String::length));
+		String longestString = strings.stream().max(Comparator.comparingInt(String::length)).orElse("");
 		
 		System.out.println("BEST SOLUTION longestString: " +longestString);
 		

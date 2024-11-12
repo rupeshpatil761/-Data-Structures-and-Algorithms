@@ -6,11 +6,11 @@ public class CeliningOfNumber {
 	// 
 	public static void main(String[] args) {
 		int[] array = {2,3,5,9,14,16,18};
-		//int target = 4; // output should be index 2 i.e 5 value
+		int target = 4; // output should be index 2 i.e 5 value
 		
 		//int target = 15; // output should be index 5 i.e 16 value 
 		
-		int target = 20; // output should be -1
+		//int target = 20; // output should be -1
 		
 		int index = findCeling(array, target);
 		System.out.println("Result index: "+index);

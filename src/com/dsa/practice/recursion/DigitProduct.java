@@ -9,6 +9,7 @@ public class DigitProduct {
 
 	private static int product(int num) {
 		
+		// if N%10 == number itself -- return N
 		if(num%10 == num) { // if one digit is remaining return that number itself
 			return num;
 		}

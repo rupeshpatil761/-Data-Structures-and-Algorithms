@@ -3,7 +3,7 @@ package com.dsa.practice.amex;
 import java.util.Arrays;
 
 public class MinimumMovesToNonNegativeSum {
-	// AMX -Round 2
+	// EPAM Internal Round AMX -Round 2
 	/**
 	 * Given an unsorted array of integers, with even amount of elements, 
 	 * where sum of all integers is always greater than zero, 

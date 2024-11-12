@@ -37,7 +37,7 @@ public class Java8_FlatMap {
 
 		System.out.println(hobbiesCountMap + " <<<<<<<hobbiesCountMap");
 		
-		int N =2;
+		int N =3;
 
 		List<String> hobbiesInDescOrder = hobbiesCountMap.entrySet().stream().sorted(Map.Entry.comparingByValue((v1, v2) -> v2.compareTo(v1)))
 				.map(entry -> entry.getKey()).limit(N).collect(Collectors.toList());

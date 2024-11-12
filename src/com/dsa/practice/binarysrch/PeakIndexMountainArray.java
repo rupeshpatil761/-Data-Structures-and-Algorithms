@@ -2,14 +2,15 @@ package com.dsa.practice.binarysrch;
 
 public class PeakIndexMountainArray {
 	
-	// easy : https://leetcode.com/problems/peak-index-in-a-mountain-array
+	// Medium : https://leetcode.com/problems/peak-index-in-a-mountain-array
 	//Mediam | https://leetcode.com/problems/find-peak-element 
 	
 	// ** Solution is same for both problems
 
 	public static void main(String[] args) {
 		//int[] arr = {0,10,5,2};  // output should be 1 i.e. 10
-		int[] arr = {1,2,3,4,5,6,4,3,2};  // output should be 5 i.e. 6
+		//int[] arr = {1,2,3,4,5,6,4,3,2};  // output should be 5 i.e. 6
+		int[] arr = {0,10,5,2};  // output should be 1 i.e. 10
 		int result = peakIndexInMountainArray(arr);
 		System.out.println("Result: "+result);
 	}

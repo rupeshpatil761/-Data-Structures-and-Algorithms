@@ -14,5 +14,12 @@ public class DigitSum {
 		}
 		
 		return sum(num/10) + (num%10);
+		
+		/**
+		 * For example:
+		 * N = 1342
+		 * n/10 = 134
+		 * n%10 = 2
+		 */
 	}
 }

@@ -1,6 +1,8 @@
 package com.dsa.practice.recursion;
 
 public class BinarySearch {
+	
+	// https://www.youtube.com/watch?v=M2uO2nMT0Bk&list=PL9gnSGHSqcnp39cTyB1dTZ2pJ04Xmdrod&index=3
 
 	public static void main(String[] args) {
 		int[] array = {1,2,3,4,5,22};

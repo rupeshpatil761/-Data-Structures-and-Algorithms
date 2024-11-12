@@ -8,7 +8,7 @@ public class LongestConsecutiveSeqString {
 	public static void main(String[] args) {
 		
 		/***
-		 *  Input: s = "abacaba" ,"awy, "z", "abcde"
+		 *  Input: s = "abacaba"
 		    Output: 2
 			Explanation: There are 4 distinct continuous substrings: "a", "b", "c" and "ab".
 			"ab" is the longest continuous substring
