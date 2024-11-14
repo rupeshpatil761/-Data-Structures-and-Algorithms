@@ -14,18 +14,18 @@ public class StatPractice {
 
 		String[] input = {"5346", "23", "973", "6382", "8821", "2", "1231", "6103"};
 
-		
 		// convert string numbers array to int array
-		int[] numbers = Arrays.stream(input).mapToInt(Integer::parseInt).toArray(); 
+		int[] numbers = Arrays.stream(input).mapToInt(Integer::parseInt).toArray();   // Converts strings to ints and finally to int[]
         
         System.out.println("Input array is: "+ Arrays.toString(numbers));
 
         // Calculate and display the statistics
         System.out.println("Mean: " + calculateMean(numbers)); // average of all nos
         System.out.println("Median: " + calculateMedian(numbers)); // middle element
-        System.out.println("Mode: " + calculateModeNew(numbers)); // most occured
+        System.out.println("Mode: " + calculateMode(numbers)); // most occured
         System.out.println("Range: " + calculateRange(numbers)); // max - min
         System.out.println("Nos in Range: "+getNumbersInRange(numbers, 344,6000));
+        System.out.println("Nos in Range using boxed: "+getNumbersInRangeUsingBoxed(input, 344,6000));
 	}
 	
 	public static int calculateRange(int[] numbers) {
@@ -34,8 +34,8 @@ public class StatPractice {
 		return max - min;
 	}
 
-	public static long calculateModeNew(int[] numbers) {
-		Map<Integer, Long> map = Arrays.stream(numbers).mapToObj(Integer::valueOf)
+	public static long calculateMode(int[] numbers) {
+		Map<Integer, Long> map = Arrays.stream(numbers).mapToObj(Integer::valueOf)  // // Converts ints to Integers
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
 		Optional<Map.Entry<Integer, Long>> entry = map.entrySet().stream()
@@ -49,10 +49,11 @@ public class StatPractice {
 	}
 
 	public static double calculateMedian(int[] numbers) {
-    	
+    	// sorting is important
+		
     	List<Integer> list = Arrays.stream(numbers).mapToObj(Integer::valueOf).sorted().collect(Collectors.toList());
     	
-        Arrays.sort(numbers);  // ***********
+        //Arrays.sort(numbers);  // ***********
         int length = list.size();
         if (length % 2 == 0) {
             return (list.get(length / 2 - 1) + list.get(length / 2)) / 2.0;
@@ -68,5 +69,9 @@ public class StatPractice {
 	
 	public static List<Integer> getNumbersInRange(int[] numbers, int start, int end) {
 		return Arrays.stream(numbers).mapToObj(Integer::valueOf).filter(n -> n>=start && n<=end).sorted().collect(Collectors.toList());
+	}
+	
+	public static List<Integer> getNumbersInRangeUsingBoxed(String[] input, int start, int end) {
+		return Arrays.stream(input).mapToInt(Integer::parseInt).boxed().filter(n -> n>=start && n<=end).sorted().collect(Collectors.toList());
 	}
 }

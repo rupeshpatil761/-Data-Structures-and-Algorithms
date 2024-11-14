@@ -68,7 +68,6 @@ public class StringCompression {
 				sb.append(count);
 			}
 		}
-		//Arrays.fill(chars, ' ');
 		for(int i=0; i < sb.length(); i++) {
 			chars[i] = sb.charAt(i);
 		}

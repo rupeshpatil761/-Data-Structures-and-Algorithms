@@ -5,6 +5,9 @@ import java.util.Set;
 
 public class MaximumVowelsInASubstring {
 	
+	// Given a string s and an integer k, 
+	//return the maximum number of vowel letters in any substring of s with length k.
+	
 	//https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 
 	public static void main(String... args) {
@@ -51,11 +54,13 @@ public class MaximumVowelsInASubstring {
 
 		// Slide the window and update the maximum number of vowels
 		for (int i = k; i < s.length(); i++) {
-			if (vowels.contains(s.charAt(i - k)))
+			if (vowels.contains(s.charAt(i - k))) {
 				windowVowels--;
+			}
 
-			if (vowels.contains(s.charAt(i)))
+			if (vowels.contains(s.charAt(i))) {
 				windowVowels++;
+			}
 
 			maxVowels = Math.max(maxVowels, windowVowels);
 		}

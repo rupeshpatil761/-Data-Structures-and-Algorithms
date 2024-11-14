@@ -4,7 +4,7 @@ public class LongestPalindromicSubstring {
 	
 	// https://leetcode.com/problems/longest-palindromic-substring/description/
 	
-	//https://www.youtube.com/watch?v=AKIHWGumagI&t=318s 
+	// https://www.youtube.com/watch?v=AKIHWGumagI&t=318s 
 
 	public static void main(String[] args) {
 		
@@ -24,7 +24,7 @@ public class LongestPalindromicSubstring {
 		for(int i=0; i<n; i++) {
 			for(int j=i+1; j<n; j++) {
 				if(isPalindrome(str, i, j)) {
-					if(j-i+1 > max) {
+					if(j-i+1 > max) { // to find max substring if already maxSubString has found no need to check for small substrings
 						max = j-i+1;
 						start = i;
 						end = j;
@@ -50,12 +50,11 @@ public class LongestPalindromicSubstring {
 /*
 
 Example 1:
-
 Input: s = "babad"
 Output: "bab"
 Explanation: "aba" is also a valid answer.
-Example 2:
 
+Example 2:
 Input: s = "cbbd"
 Output: "bb"
 

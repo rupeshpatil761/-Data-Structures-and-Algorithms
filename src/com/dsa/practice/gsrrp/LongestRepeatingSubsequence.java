@@ -3,6 +3,9 @@ package com.dsa.practice.gsrrp;
 import java.util.Arrays;
 
 public class LongestRepeatingSubsequence {
+	
+	// Solution: // https://www.youtube.com/watch?v=9jW8Bk24zz4
+	// https://www.geeksforgeeks.org/longest-repeating-subsequence/
 
 	public static void main(String[] args) {
 		System.out.println("Result: "+longestRepeatingSubstringUsingRecursion("aabb"));
@@ -11,8 +14,6 @@ public class LongestRepeatingSubsequence {
 		
 	}
 	
-	// Solution: // https://www.youtube.com/watch?v=9jW8Bk24zz4
-	// https://www.geeksforgeeks.org/longest-repeating-subsequence/
 	// Time Complexity: O(m * n) - Each cell in the dp table is filled in constant time.
 	// Space Complexity: O(m * n) - For storing the dp table.
 	private static int longestRepeatingSubstringUsingRecursion(String str1) {
@@ -50,8 +51,8 @@ public class LongestRepeatingSubsequence {
 			return dp[i][j] = max;
 		}
 	}
-	
-	// another solution with T: O(n2) && S: O(n2) 
+	// Brute force Solution
+	//  T: O(n2) && S: O(n2) 
 	// https://www.youtube.com/watch?v=oL7GCrcdaJI
 	static int findLongestRepeatingSubSeqBruteForce(String str)
     {
@@ -77,3 +78,24 @@ public class LongestRepeatingSubsequence {
         return dp[n][n];
     }
 }
+
+/*
+Examples 
+
+Input: str = "abc"
+Output: 0
+There is no repeating subsequence
+
+Input: str = "aab"
+Output: 1
+The two subsequence are 'a'(first) and 'a'(second). 
+Note that 'b' cannot be considered as part of subsequence 
+as it would be at same index in both.
+
+Input: str = "aabb"
+Output: 2
+
+Input: str = "axxxy"
+Output: 2
+
+*/

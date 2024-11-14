@@ -30,7 +30,7 @@ public class DecodeString {
 			
 			if(Character.isDigit(c)) {
 				k = (k * 10) + (c - '0');
-				continue;
+				continue; //  because we may have more than 1 digit number i.e. 12
 			}
 			
 			if(c == '[') {
@@ -40,8 +40,8 @@ public class DecodeString {
 				continue;
 			}
 			
-			// char case
-			if(c != ']') {
+			// char case [a-z]
+			if(Character.isLetter(c)) {
 				stringStack.push(String.valueOf(c));
 				continue;
 			}

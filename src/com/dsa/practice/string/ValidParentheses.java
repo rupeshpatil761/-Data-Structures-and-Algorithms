@@ -7,7 +7,7 @@ public class ValidParentheses {
 	public static void main(String[] args) {
 		System.out.println("Reuslt Approach 1 :"+ validateParenthesis("()[]{}"));
 		
-		System.out.println("Reuslt Approach 2 :"+ isValid("()[]{}"));
+		System.out.println("Reuslt Approach 2 :"+ isValidParenthesis("()[]{}"));
 	}
 
 	// Approach 1
@@ -35,7 +35,7 @@ public class ValidParentheses {
 	}
 	
 	// Approach 2
-	private static boolean isValid(String s) {
+	private static boolean isValidParenthesis(String s) {
 		Stack<Character> stack = new Stack<Character>();
 		for (char c : s.toCharArray()) {
 			if (c == '(')

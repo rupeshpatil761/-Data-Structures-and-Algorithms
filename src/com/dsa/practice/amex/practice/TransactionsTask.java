@@ -45,8 +45,8 @@ public class TransactionsTask {
 		System.out.println("categoryWiseTrnxs: " + categoryWiseTrnxs);
 
 		DateSearchService dateSearchService = new DateSearchService();
-		searchData.startDate = "09/01/2021";
-		searchData.endDate = "01/01/2023";
+		searchData.startDate = "01/01/2022";
+		searchData.endDate = "12/01/2023";
 		List<Transcation> dateWiseTrnxs = dateSearchService.searchRecords(searchData);
 		System.out.println("dateWiseTrnxs: " + dateWiseTrnxs);
 		
@@ -81,7 +81,7 @@ class DateUtil {
 	public static boolean dateRangePredicate(LocalDate date, String startDate, String endDate) {
 		LocalDate start = DateUtil.parseDate(startDate);
 		LocalDate end = DateUtil.parseDate(endDate);
-
+		
 		if ((date.isEqual(start) || date.isAfter(start)) && (date.isEqual(end) || date.isBefore(end))) {
 			return true;
 		}
@@ -124,23 +124,37 @@ class CategorySearchService implements TransactionService {
 }
 
 class DateSearchService implements TransactionService {
-
+	
+	private boolean dateRangeChecker(LocalDate trnxDate, String start, String end) {
+		LocalDate startDate = DateUtil.parseDate(start);
+		LocalDate endDate = DateUtil.parseDate(end);
+		boolean result = (trnxDate.isEqual(startDate) || trnxDate.isAfter(startDate) && 
+		trnxDate.isEqual(endDate) || trnxDate.isBefore(endDate));
+		return result;
+	}
+	
 	@Override
 	public List<Transcation> searchRecords(SearchData searchData) {
 
-		if (searchData.startDate == null || searchData.endDate == null) {
+		if (searchData.startDate == null && searchData.endDate == null) {
 			return new ArrayList<>();
 		}
+		
+		if(searchData.endDate == null){
+			searchData.endDate =  DateUtil.formatDate(LocalDate.now());
+		}
+		
 
 		List<Transcation> transcations = TransactionsTask.getTranscationsData();
 		return transcations.stream()
-				.filter(t -> DateUtil.dateRangePredicate(t.getDate(), searchData.startDate, searchData.endDate))
+				.filter(t -> dateRangeChecker(t.getDate(), searchData.startDate, searchData.endDate))
 				.sorted(Comparator.comparing(Transcation::getDate))
 				.collect(Collectors.toList());
 	}
 }
 
 class DateAndVendorSearchService {
+	
 
 	public String getTotalAmountByDateAndVendor(SearchData searchData) {
 

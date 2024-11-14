@@ -43,7 +43,7 @@ class StatisticsCalculatorJunitTests {
 		String[] input = {"5346", "23", "973", "6382", "8821", "23", "1231", "6103"};
 		int[] numbers = convertToIntArray(input);
 		int expectedMode = 23;
-		assertEquals(expectedMode, StatPractice.calculateModeNew(numbers));
+		assertEquals(expectedMode, StatPractice.calculateMode(numbers));
 	}
 	
 	@Test

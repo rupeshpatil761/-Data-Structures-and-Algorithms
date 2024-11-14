@@ -9,12 +9,13 @@ public class IsomorphicString {
 
 	public static void main(String[] args) {
 
-		/*
-		 * String s = "foo"; String t = "bar";
-		 */
+		
+		String s = "foo"; String t = "bar";
+		 
 
-		String s = "egg";
-		String t = "add";
+		/*
+		 * String s = "egg"; String t = "add";
+		 */
 
 		System.out.println("isIsomorphicUsingMap Result: " + isIsomorphicUsingMap(s, t));
 		
